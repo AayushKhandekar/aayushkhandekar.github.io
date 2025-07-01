@@ -1,9 +1,15 @@
+<!-- TO DO -->
+<!-- UPDATE BLOG TITLE -->
+<!-- UPDATE DATE IN BLOG PAGE -->
+<!-- ADD BLOG IN OL IN BLOG.HTML -->
+<!-- UPDATE DATE IN BLOG.HTML -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Minimizing Portfolio Risk</title>
 
     <link href="../../assets/css/blog.css" rel="stylesheet"> 
 
@@ -11,21 +17,53 @@
 <body>
 
     <section>
-        <h1>The Art of Placeholder Content</h1>
-        <h3>Published on June 17, 2025</h3>        
+        <h1>Minimizing Portfolio Risk</h1>
+        <h3>Published on July 1st, 2025</h3>        
 
         <div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec posuere lorem. Pellentesque at viverra metus. Nulla facilisi. Donec venenatis magna nec tortor dignissim, nec pretium mauris pretium.</p>
+        <p><b>Objective</b></p>
 
-            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris finibus justo sit amet velit fermentum, at vestibulum nulla tempor. Integer sit amet libero sed risus bibendum bibendum.</p>
+        <p>The primary goal of this project is to minimize the risk of a portfolio by optimizing the weight allocation of its constituent assets. Portfolio risk is primarily driven by the individual volatilities of the assets and the correlations between them. By adjusting asset weights—without changing the asset selection—we aim to achieve improved capital preservation and volatility control. </p>
 
-            <p>Fusce malesuada ipsum a nisl efficitur, in consequat nisi congue. Aliquam erat volutpat. Suspendisse potenti. Aenean fringilla, enim id cursus suscipit, justo sapien dignissim sem, vitae posuere metus magna non metus.</p>
+        <p><b>Asset Selection</b></p>
 
-            <p>Praesent luctus sapien a lacus iaculis, nec convallis mi vulputate. Nam ac congue nisl. Donec tristique leo in luctus convallis. Integer sed velit nec metus sagittis rhoncus non et magna.</p>
+        <p>The portfolio comprises 15 actively traded U.S. equities, selected from the most active stocks in the market. These span multiple sectors, ensuring diversification:</p>
 
-            <p>Aliquam a efficitur orci, non laoreet nulla. Sed nec pharetra odio, et sollicitudin sem. Etiam blandit turpis non eros egestas, id vulputate augue lacinia. Cras ut ligula velit.</p>
+        <ol>
+            <li>Large-cap Technology & Growth: Apple (AAPL), Nvidia (NVDA), Tesla (TSLA), Amazon (AMZN), Palantir (PLTR), Super Micro Computer Inc. (SMCI)</li>
+            <li>Financials & Fintech: SoFi Technologies Inc. (SOFI), Oscar Health Inc. (OSCR)</li>
+            <li>Traditional Sectors: Ford Motor (F), Intel Corporation (INTC), American Airlines (AAL), Warner Bros. Discovery (WBD)</li>
+            <li>Metals & Mining: B2Gold Corp (BTG), Riot Platforms (RIOT)</li>
+            <li>EV & Green Tech: Lucid Group Inc. (LCID)</li>
+        </ol>
 
-            <p>Donec nec risus ut lacus gravida tincidunt sed nec sapien. Integer facilisis libero at nisl mattis, nec ultricies sem porttitor. Aenean suscipit diam at efficitur pretium.</p>
+        <p>Data Source: Yahoo Finance</p>
+        <p>Date Range: January 1, 2024 – January 1, 2025</p>
+
+        <p>We begin with an Equal-Weighted Portfolio, where each asset is assigned a uniform weight of 1/n (n = number of assets). 
+            This neutral starting point provides a baseline for comparison with the optimized portfolio. Portfolio risk is calculated using 
+            the standard deviation of returns, which is then annualized using the square root of 252 (the average number of trading days in a 
+            year). To identify the optimal allocation that minimizes portfolio risk, we employ the scipy.optimize.minimize function from the 
+            SciPy library. This function minimizes a user-defined objective function—here, getPortfolioRisk()—subject to the constraint that 
+            the weights must sum to one.</p>
+
+        <p><b>Results and Analysis</b></p>
+
+        <p>Annualized Risk of Equal-Weighted Portfolio: 29.62% <br>
+            Annualized Risk of Minimum-Risk Portfolio: 17.91%</p>
+
+        <p>The optimization significantly reduces portfolio risk by over 11 percentage points, demonstrating the effectiveness of strategic
+            weight reallocation. The resulting Minimum-Risk Portfolio heavily favors the most stable assets:</p>
+
+        <ol>
+            <li>Apple (AAPL) – 49.80%</li>
+            <li>Amazon (AMZN) – 18.41%</li>
+            <li>Ford Motor (F) – 13.11%</li>
+            <li>B2Gold Corp (BTG) – 11.06%</li>
+        </ol>
+
+        <p>Together, these four stocks account for approximately 92.38% of the portfolio's total allocation, underscoring their 
+            comparatively low volatility and favorable correlation profiles.</p>
 
         </div>
   
