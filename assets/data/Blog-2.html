@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Approximating Implied Volatility with Binary Search</title>
 
     <link href="../../assets/css/blog.css" rel="stylesheet"> 
 
@@ -11,15 +11,51 @@
 <body>
 
     <section>
-        <h1>The Art of Placeholder Content</h1>
-        <h3>Published on June 17, 2025</h3>        
+        <h1>Approximating Implied Volatility with Binary Search</h1>
+        <h3>Published on July 7, 2025</h3>        
 
         <div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec posuere lorem. Pellentesque at viverra metus. Nulla facilisi. Donec venenatis magna nec tortor dignissim, nec pretium mauris pretium.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Fusce malesuada ipsum a nisl efficitur, in consequat nisi congue. Aliquam erat volutpat. Suspendisse potenti. Aenean fringilla, enim id cursus suscipit, justo sapien dignissim sem, vitae posuere metus magna non metus. Praesent luctus sapien a lacus iaculis, nec convallis mi vulputate. Nam ac congue nisl. Donec tristique leo in luctus convallis. Integer sed velit nec metus sagittis rhoncus non et magna. </p>
-            <p>Aliquam a efficitur orci, non laoreet nulla. Sed nec pharetra odio, et sollicitudin sem. Etiam blandit turpis non eros egestas, id vulputate augue lacinia. Cras ut ligula velit.</p>
-            <p>Donec nec risus ut lacus gravida tincidunt sed nec sapien. Integer facilisis libero at nisl mattis, nec ultricies sem porttitor. Aenean suscipit diam at efficitur pretium.</p>
+            <p>
+                Implied volatility is one of the most critical concepts in options pricing and trading. It represents the market's 
+                expectation of how volatile a stock will be over the life of an option. However, implied volatility isn't something 
+                directly observable. It's not quoted like a stock price. Instead, it's inferred from the market price of an option using 
+                a pricing model like Black-Scholes-Merton. In essence, implied volatility is the value of the volatility input that, when 
+                plugged into the Black-Scholes formula, gives a theoretical price that matches the actual market price of the option.
+            </p>
+            
+            <p>
+                The challenge, however, is that the Black-Scholes formula cannot be rearranged to isolate and solve for 
+                volatility. This is because volatility appears in multiple locations within the formula, such as inside a logarithmic term 
+                and under a square root. Therefore, to find the implied volatility, we must use numerical methods to approximate the value 
+                of that makes the model price equal to the market price. One of the simplest and most intuitive ways to do this is by 
+                using a binary search algorithm.
+            </p>
 
+            <p>
+                In a binary search approach, we start with a lower and upper bound for the volatility and iteratively narrow the 
+                interval by comparing the model’s price at the midpoint to the observed market price. If the model price is too low, 
+                it means our guessed volatility is too low, so we shift the lower bound upward. If the model price is too high, we reduce 
+                the upper bound. This process continues until the model price is sufficiently close to the market price within a small 
+                tolerance.
+            </p>
+
+            <p>
+                This method was implemented in Python to compute the implied volatility for a European call option using the 
+                Black-Scholes model. Given parameters such as the current stock price, strike price, time to expiration, interest rate, 
+                and the market price of the call option, the algorithm successfully finds the implied volatility. In the example, the 
+                market price of the call option was $1.875, and the algorithm found that a volatility of approximately 30.04% would 
+                make the Black-Scholes model return this price.
+            </p>
+
+            <p>
+                In practice, implied volatility plays a central role in assessing market sentiment, comparing options across different 
+                strikes and maturities, and implementing volatility-based trading strategies. It is often used by traders to identify 
+                options that are overpriced or underpriced relative to their historical or expected volatility. Understanding how to 
+                compute implied volatility, and why it matters, is essential for any student or practitioner of quantitative finance 
+                or derivatives trading.
+            </p>
+
+            <a href="https://github.com/AayushKhandekar/Mini-Projects/blob/main/Approximating%20Implied%20Volatility%20with%20Binary%20Search/readme.md">View Code</a>
         </div>
   
     </section>
